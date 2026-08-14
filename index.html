@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindful Steps - Counselling & Digital Solutions</title>
+  <style>
+    :root {
+      --lemon-yellow: #f1c40f;
+      --bg-white: #ffffff;
+      --text-black: #111111;
+      --card-bg: #fdfdfd;
+      --border-color: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: var(--text-black);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .mobile-container {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--bg-white);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    /* Top Split Section */
+    .top-split {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .left-half {
+      width: 65%;
+      background-color: var(--bg-white);
+      padding: 20px 15px;
+    }
+
+    .right-half {
+      width: 35%;
+      background-color: var(--lemon-yellow);
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Header & Branding */
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .top-right-logo {
+      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .step-bar {
+      background-color: var(--text-black);
+      height: 6px;
+      border-radius: 2px;
+    }
+    .step-1 { width: 20px; }
+    .step-2 { width: 12px; }
+
+    /* Navigation Menu */
+    .nav-links {
+      display: flex;
+      justify-content: space-around;
+      background: #111;
+      padding: 10px 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Content Sections */
+    .section-padding {
+      padding: 20px 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--lemon-yellow);
+      padding-left: 8px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .service-card h4 {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .service-card ul {
+      font-size: 0.75rem;
+      color: #444;
+      padding-left: 15px;
+      line-height: 1.4;
+    }
+
+    /* Action Buttons */
+    .btn {
+      display: block;
+      width: 100%;
+      background: var(--text-black);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .btn-yellow {
+      background: var(--lemon-yellow);
+      color: var(--text-black);
+      border: 1px solid var(--text-black);
+    }
+
+    /* Form Inputs */
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+
+    /* Payment Section Styling */
+    .payment-box {
+      background: #fafafa;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .qr-placeholder {
+      width: 160px;
+      height: 160px;
+      background-color: #ffffff;
+      border: 1px dashed var(--text-black);
+      border-radius: 8px;
+      margin: 0 auto 12px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 0.75rem;
+    }
+
+    /* Floating Chatbot Widget Layout */
+    .chatbot-widget {
+      position: sticky;
+      bottom: 15px;
+      align-self: flex-end;
+      margin-right: 15px;
+      background: var(--lemon-yellow);
+      border: 2px solid var(--text-black);
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+    
+    <!-- Header Layout -->
+    <div class="top-split">
+      <div class="left-half">
+        <div class="brand-title">Mindful<br>steps</div>
+        <div class="brand-subtitle">Mindfulstepsconnect</div>
+        <div class="hero-title">നിങ്ങളുടെ വളർച്ചയ്ക്കുള്ള ലളിതമായ ചുവടുവെപ്പുകൾ</div>
+      </div>
+      
+      <div class="right-half">
+        <div class="top-right-logo">
+          <div class="step-bar step-2"></div>
+          <div class="step-bar step-1"></div>
+        </div>
+        <a href="#booking" class="btn btn-yellow" style="font-size: 0.65rem;">Book Session</a>
+      </div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#counselling">Counselling</a>
+      <a href="#digital">Digital</a>
+      <a href="#payment">Payment</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section-padding">
+      <div class="section-heading">About Us</div>
+      <p style="font-size: 0.75rem; color: #333; line-height: 1.4;">
+        Mindful Steps is a professional initiative offering counselling, well-being support, and digital solutions. We support individuals in personal growth and help organizations work more effectively.
+      </p>
+    </div>
+
+    <!-- Counselling Services Section -->
+    <div id="counselling" class="section-padding">
+      <div class="section-heading">1. Counselling & Well-being</div>
+      
+      <div class="service-card">
+        <h4>Personal & Family Counselling</h4>
+        <ul>
+          <li>Individual Counselling</li>
+          <li>Child & Adolescent Support</li>
+          <li>Family & Psychosocial Support</li>
+          <li>Online & Appointment-based Sessions</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h4>Workshops & Programmes</h4>
+        <ul>
+          <li>Awareness sessions for organizations</li>
+          <li>Group guidance & mental well-being workshops</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Digital Support Section -->
+    <div id="digital" class="section-padding">
+      <div class="section-heading">2. Digital & Business Support</div>
+      
+      <div class="service-card">
+        <h4>Digital Presence & Solutions</h4>
+        <ul>
+          <li>Website Creation & Support</li>
+          <li>Chatbot Development</li>
+          <li>Online Enquiry & Appointment Systems</li>
+          <li>Digital Forms & Basic Automation</li>
+          <li>Solutions for Small Businesses, NGOs & Agencies</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Booking / Enquiry Form -->
+    <div id="booking" class="section-padding">
+      <div class="section-heading">Appointment & Enquiry</div>
+      
+      <form onsubmit="alert('Enquiry Submitted!'); return false;">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Enter your name" required />
+        </div>
+
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option>Counselling Session</option>
+            <option>Digital / Website Support</option>
+            <option>Workshop for Organization</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Message / Details</label>
+          <textarea rows="3" placeholder="How can we help you?"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Request</button>
+      </form>
+    </div>
+
+    <!-- Payment & QR Code Section -->
+    <div id="payment" class="section-padding">
+      <div class="section-heading">Payment / പേയ്‌മെന്റ്</div>
+      
+      <div class="payment-box">
+        <div class="qr-placeholder">
+          <span style="font-size: 1.8rem; margin-bottom: 5px;">📱</span>
+          <span>Payment Barcode Space</span>
+          <span style="font-size: 0.65rem; color: #999; margin-top: 4px;">(Google Pay, PhonePe, Paytm)</span>
+        </div>
+
+        <p style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px;">Scan to pay for services</p>
+        <p style="font-size: 0.7rem; color: #555;"><strong>UPI ID:</strong> [Your UPI ID Here]</p>
+      </div>
+    </div>
+
+    <!-- Contact Details Section -->
+    <div id="contact" class="section-padding" style="background: #fafafa;">
+      <div class="section-heading">Contact Information</div>
+      <p style="font-size: 0.75rem; line-height: 1.6;">
+        <strong>Phone:</strong> [Your Phone Number Here]<br>
+        <strong>Email:</strong> [Your Email Address Here]<br>
+        <strong>Location:</strong> Kerala, India<br>
+        <strong>Website:</strong> Mindfulstepsconnect
+      </p>
+    </div>
+
+    <!-- AI Chatbot Helper Widget -->
+    <div class="chatbot-widget" onclick="alert('Chatbot: Hello! How can I assist you with Counselling or Digital Services today?')">
+      💬 Chat with Us
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © Mindfulstepsconnect 2026. All Rights Reserved.
+    </div>
+
+  </div>
+
+</body>
+</html>
