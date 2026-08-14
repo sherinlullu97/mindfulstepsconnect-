@@ -318,15 +318,20 @@
     <div id="booking" class="section-padding">
       <div class="section-heading">Appointment & Enquiry</div>
       
-      <form onsubmit="alert('Enquiry Submitted!'); return false;">
+      <form action="https://formsubmit.co/Sherinjk20@gmail.com" method="POST">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" placeholder="Enter your name" required />
+          <input type="text" name="name" placeholder="Enter your name" required />
+        </div>
+
+        <div class="form-group">
+          <label>Your Email / Phone</label>
+          <input type="text" name="contact" placeholder="Enter your email or phone" required />
         </div>
 
         <div class="form-group">
           <label>Service Needed</label>
-          <select>
+          <select name="service">
             <option>Counselling Session</option>
             <option>Digital / Website Support</option>
             <option>Workshop for Organization</option>
@@ -335,7 +340,7 @@
 
         <div class="form-group">
           <label>Message / Details</label>
-          <textarea rows="3" placeholder="How can we help you?"></textarea>
+          <textarea name="message" rows="3" placeholder="How can we help you?"></textarea>
         </div>
 
         <button type="submit" class="btn">Submit Request</button>
@@ -354,7 +359,7 @@
         </div>
 
         <p style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px;">Scan to pay for services</p>
-        <p style="font-size: 0.7rem; color: #555;"><strong>UPI ID:</strong> [Your UPI ID Here]</p>
+        <p style="font-size: 0.7rem; color: #555;">Details provided upon appointment confirmation.</p>
       </div>
     </div>
 
@@ -362,15 +367,15 @@
     <div id="contact" class="section-padding" style="background: #fafafa;">
       <div class="section-heading">Contact Information</div>
       <p style="font-size: 0.75rem; line-height: 1.6;">
-        <strong>Phone:</strong> [Your Phone Number Here]<br>
-        <strong>Email:</strong> [Your Email Address Here]<br>
+        <strong>Email:</strong> <a href="mailto:Sherinjk20@gmail.com" style="color: #111; font-weight: bold;">Sherinjk20@gmail.com</a><br>
+        <strong>Mode:</strong> Online & Appointment Based<br>
         <strong>Location:</strong> Kerala, India<br>
         <strong>Website:</strong> Mindfulstepsconnect
       </p>
     </div>
 
     <!-- AI Chatbot Helper Widget -->
-    <div class="chatbot-widget" onclick="alert('Chatbot: Hello! How can I assist you with Counselling or Digital Services today?')">
+    <div class="chatbot-widget" onclick="alert('Hello! Please use the Appointment form above to send us a message.')">
       💬 Chat with Us
     </div>
 
